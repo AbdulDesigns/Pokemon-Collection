@@ -1,7 +1,9 @@
+import Card from "./components/Card";
+
 const App = () => {
   return (
     <>
-      <h1> this is APP</h1>
+      <Card />
     </>
   );
 };
