@@ -5,6 +5,21 @@ const Container = () => {
   // This component serves as a container for the Card component
   // and is responsible for fetching data from the PokeAPI.
   const [pokemonData, setPokemonData] = useState([]);
+  const [search, setSearch] = useState("");
+
+  //search handler function
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchValue = e.target.value;
+    setSearch(searchValue);
+    console.log(searchValue);
+  };
+
+  //submit handler function
+  const submutHandler = (e) => {
+    e.preventDefault();
+    console.log("submit");
+  };
 
   const fetchData = async () => {
     try {
@@ -43,13 +58,15 @@ const Container = () => {
         Pokemon Hunt
       </h1>
       <form
-        action="./"
+        onSubmit={submutHandler}
         className=" w-1/2 mx-auto mb-12 flex justify-center align-middle gap-8"
       >
         <input
           type="text"
           name="search"
           id="search"
+          value={search}
+          onChange={handleSearch}
           placeholder="Search Pokémon..."
           className="py-2 text-amber-50 w-1/2 px-4 border border-amber-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition duration-300"
         />
