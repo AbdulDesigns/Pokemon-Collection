@@ -1,21 +1,21 @@
-const Card = () => {
+const Card = ({ pokemon }) => {
   return (
-    <div className="max-w-sm mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+    <div className="max-w-sm mx-auto py-6 px-4 bg-white rounded-2xl shadow-lg shadow-amber-700/10 border-1 border-amber-200 overflow-hidden flex justify-center flex-col">
       <img
-        className="w-full h-48 object-cover"
-        src="https://source.unsplash.com/400x300/?nature,water"
+        className="w-full h-40 object-contain object-center "
+        src={pokemon.sprites.front_default}
         alt="Card Image"
       />
 
-      <div className="p-6">
-        <h2 className="text-2xl font-bold mb-2 text-gray-800">
-          Explore Nature
+      <div className="p-6 flex flex-col justify-center items-center">
+        <h2 className="text-2xl font-bold mb-2 text-gray-800 capitalize">
+          {pokemon.name}
         </h2>
-        <p className="text-gray-600 mb-4">
+        <p className="text-gray-600 mb-4 text-center">
           Discover the beauty of the outdoors with our hand-picked destinations
           for your next adventure.
         </p>
-        <button className="bg-blue-600 cursor-pointer text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">
+        <button className="bg-amber-500 cursor-pointer border-amber-200 border-1 rounded-2xl  text-amber-100 px-4 py-2  hover:bg-amber-500 transition duration-300">
           Learn More
         </button>
       </div>
