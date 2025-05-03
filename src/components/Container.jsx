@@ -38,7 +38,7 @@ const Container = () => {
   }, []);
 
   return (
-    <div className="bg-amber-950 min-h-screen">
+    <div className="bg-amber-950">
       <h1 className="text-7xl capitalize font-bold text-center py-15 text-amber-300">
         Pokemon Hunt
       </h1>

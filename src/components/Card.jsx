@@ -15,7 +15,7 @@ const Card = ({ pokemon }) => {
           Discover the beauty of the outdoors with our hand-picked destinations
           for your next adventure.
         </p>
-        <button className="bg-amber-500 cursor-pointer border-amber-200 border-1 rounded-2xl  text-amber-100 px-4 py-2  hover:bg-amber-500 transition duration-300">
+        <button className="bg-amber-500 cursor-pointer w-full border-amber-200 border-1 rounded-2xl  text-amber-100 px-4 py-3  hover:bg-amber-500 transition duration-300">
           Learn More
         </button>
       </div>
