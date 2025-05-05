@@ -6,6 +6,8 @@ const Container = () => {
   // and is responsible for fetching data from the PokeAPI.
   const [pokemonData, setPokemonData] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   //search handler function
   const handleSearch = (e) => {
@@ -34,7 +36,7 @@ const Container = () => {
       const detailedData = data.results.map(async (cur) => {
         const res = await fetch(cur.url);
         const resData = await res.json();
-        console.log(resData);
+        // console.log(resData);
         return resData;
       });
       console.log(detailedData);
@@ -43,14 +45,37 @@ const Container = () => {
       const allData = await Promise.all(detailedData);
       console.log(allData);
       setPokemonData(allData);
+      setLoading(false);
+
+      //----intentionally added space to see the difference in the code
     } catch (error) {
-      console.error("Error fetching data:", error);
+      // console.error("Error fetching data:", error);
+      setLoading(false);
+      setError(error);
     }
   };
   //getting data from the API
   useEffect(() => {
     fetchData();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-amber-950">
+        <h1 className="text-amber-300 text-3xl font-bold">Loading...</h1>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-amber-950">
+        <h1 className="text-amber-300 text-3xl font-bold">
+          Error fetching data: {error.message}
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-amber-950">
@@ -81,7 +106,7 @@ const Container = () => {
         {pokemonData.map((pokemon) => (
           <li
             key={pokemon.id}
-            className="hover:scale-105  hover:z-10 hover:shadow-amber-500/30 hover:shadow-lg  transition duration-300"
+            className="hover:scale-105 h-fit overflow-hidden  hover:shadow-amber-500/30 hover:shadow-lg  transition duration-300"
           >
             <Card pokemon={pokemon} />
           </li>
