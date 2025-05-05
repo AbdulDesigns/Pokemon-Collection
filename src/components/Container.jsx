@@ -97,14 +97,14 @@ const Container = () => {
           value={search}
           onChange={handleSearch}
           placeholder="Search Pokémon..."
-          className="py-2 text-amber-50 w-1/2 px-4 border border-amber-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition duration-300"
+          className="p-4 text-amber-50 w-1/2  border border-amber-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition duration-300"
         />
-        <button
+        {/* <button
           type="submit"
           className="bg-amber-500 cursor-pointer border-amber-500 border rounded-2xl  text-amber-100 px-8 text-lg font-semibold hover:bg-amber-700 hover:text-white py-3 shadow-amber-500/10 shadow-lg hover:shadow-amber-500/30 transition duration-300"
         >
           Search
-        </button>
+        </button> */}
       </form>
       <ul className="grid w-full mx-auto grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8  p-8 ">
         {filteredData.map((pokemon) => (
