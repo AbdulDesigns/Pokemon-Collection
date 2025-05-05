@@ -26,10 +26,10 @@ const Container = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://pokeapi.co/api/v2/pokemon?limit=20"
+        "https://pokeapi.co/api/v2/pokemon?limit=120"
       );
       const data = await response.json();
-      console.log(data.results);
+      // console.log(data.results);
       // console.log(data.results[0].url);
 
       //now we need to get data from the url using async await in the map function
@@ -39,7 +39,6 @@ const Container = () => {
         // console.log(resData);
         return resData;
       });
-      console.log(detailedData);
 
       //you need to use Promise.all to get the data from the array of promises
       const allData = await Promise.all(detailedData);
@@ -77,6 +76,11 @@ const Container = () => {
     );
   }
 
+  //search filter
+  const filteredData = pokemonData.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="bg-amber-950">
       <h1 className="text-7xl capitalize font-bold text-center py-15 text-amber-300">
@@ -103,7 +107,7 @@ const Container = () => {
         </button>
       </form>
       <ul className="grid w-full mx-auto grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8  p-8 ">
-        {pokemonData.map((pokemon) => (
+        {filteredData.map((pokemon) => (
           <li
             key={pokemon.id}
             className="hover:scale-105 h-fit overflow-hidden  hover:shadow-amber-500/30 hover:shadow-lg  transition duration-300"

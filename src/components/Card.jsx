@@ -6,7 +6,7 @@ const Card = ({ pokemon }) => {
         src={pokemon.sprites.other.dream_world.front_default}
         alt="Card Image"
       />
-      <div className="bg-green-800 text-white py-2 px-6 w-auto mx-auto flex justify-between mt-5 items-center rounded-3xl">
+      <div className="bg-amber-100 text-amber-500 py-2 px-6 w-auto mx-auto flex justify-between mt-5 items-center rounded-3xl">
         <p className="text-sm capitalize">
           {/* {pokemon.types[0].type.name}
         {pokemon.types[1] ? `, ${pokemon.types[1].type.name}` : ""} */}
